@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muestra Visual · Opción 2 — Lácteo Industria Soto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde-industrial:#0E3D28;
+    --verde-medio:#2A6B47;
+    --verde-claro:#E8F0EA;
+    --blanco:#FFFFFF;
+    --gris-fondo:#F4F4F2;
+    --negro:#0A0A0A;
+    --gris:#4A4A4A;
+    --gris-claro:#8A8A85;
+    --amarillo-senal:#F4D423;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Karla',sans-serif;
+    background:var(--blanco);
+    color:var(--negro);
+    line-height:1.6;
+    font-size:16px;
+  }
+  h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.02em;line-height:1;color:var(--verde-industrial);text-transform:uppercase}
+  h1{font-size:clamp(3rem,7vw,6rem);letter-spacing:-.01em}
+  h2{font-size:clamp(2.2rem,4.5vw,3.8rem);margin-bottom:.5rem}
+  h3{font-size:2rem;letter-spacing:.03em}
+  p{margin-bottom:1rem;color:var(--negro);font-weight:400}
+  .container{max-width:1280px;margin:0 auto;padding:0 2rem}
+
+  /* HEADER */
+  .top-bar{background:var(--verde-industrial);color:var(--blanco);padding:.7rem 0;font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+  .top-bar .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  .top-bar a{color:var(--amarillo-senal);text-decoration:none}
+
+  header{background:var(--blanco);padding:1.3rem 0;border-bottom:4px solid var(--verde-industrial)}
+  header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .logo-text{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--verde-industrial);letter-spacing:.04em}
+  .logo-text span{color:var(--amarillo-senal);background:var(--verde-industrial);padding:.1rem .6rem;margin-left:.3rem}
+  nav ul{display:flex;gap:2.2rem;list-style:none;flex-wrap:wrap}
+  nav a{color:var(--verde-industrial);text-decoration:none;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:1.5px;transition:color .2s;position:relative}
+  nav a:hover{color:var(--amarillo-senal)}
+  nav a::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:3px;background:var(--amarillo-senal);transform:scaleX(0);transition:transform .3s}
+  nav a:hover::after{transform:scaleX(1)}
+
+  /* HERO */
+  .hero{padding:6rem 0;background:var(--verde-industrial);color:var(--blanco);position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:0;right:-10%;width:60%;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(244,212,35,.04) 20px,rgba(244,212,35,.04) 40px)}
+  .hero .container{position:relative;z-index:2}
+  .hero h1{color:var(--blanco);max-width:1000px;margin-bottom:1.5rem}
+  .hero h1 span{color:var(--amarillo-senal)}
+  .hero .eyebrow{display:inline-block;background:var(--amarillo-senal);color:var(--verde-industrial);padding:.5rem 1.2rem;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;margin-bottom:1.5rem}
+  .hero p.lead{font-size:1.15rem;color:rgba(255,255,255,.85);max-width:700px;margin:0 0 2.5rem;font-weight:400}
+  .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+
+  /* BOTONES */
+  .btn{display:inline-block;padding:1.1rem 2.5rem;font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:2px;text-decoration:none;transition:all .25s;cursor:pointer;border:3px solid transparent;text-transform:uppercase}
+  .btn-primary{background:var(--amarillo-senal);color:var(--verde-industrial);border-color:var(--amarillo-senal)}
+  .btn-primary:hover{background:transparent;color:var(--amarillo-senal)}
+  .btn-accent{background:var(--blanco);color:var(--verde-industrial);border-color:var(--blanco)}
+  .btn-accent:hover{background:transparent;color:var(--blanco)}
+  .btn-outline{background:transparent;color:var(--verde-industrial);border:3px solid var(--verde-industrial)}
+  .btn-outline:hover{background:var(--verde-industrial);color:var(--blanco)}
+
+  /* STATS BAR */
+  .stats{background:var(--amarillo-senal);padding:2rem 0;border-bottom:4px solid var(--verde-industrial)}
+  .stats .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;text-align:center}
+  .stat-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--verde-industrial);line-height:1}
+  .stat-label{font-family:'Karla',sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:2px;color:var(--verde-industrial);font-weight:700;margin-top:.3rem}
+
+  /* SECCIONES */
+  section{padding:5rem 0}
+  .section-title{text-align:center;margin-bottom:3.5rem}
+  .section-title .eyebrow{color:var(--verde-industrial);background:var(--amarillo-senal);display:inline-block;padding:.4rem 1rem;font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:2px;margin-bottom:1rem}
+  .section-title p{color:var(--gris);max-width:600px;margin:1rem auto 0;font-size:1.05rem}
+
+  /* PALETA */
+  .paleta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+  .color-card{background:var(--blanco);border:2px solid var(--negro);overflow:hidden;transition:transform .2s}
+  .color-card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--verde-industrial)}
+  .color-swatch{height:150px}
+  .color-info{padding:1.3rem;border-top:2px solid var(--negro)}
+  .color-info h4{font-family:'Bebas Neue',sans-serif;color:var(--verde-industrial);font-size:1.4rem;margin-bottom:.2rem;letter-spacing:1.5px}
+  .color-info .hex{font-family:'Karla',sans-serif;font-size:.85rem;color:var(--gris);font-weight:700;letter-spacing:1px}
+  .color-info .uso{font-size:.82rem;color:var(--gris);margin-top:.8rem;line-height:1.5}
+
+  /* TIPOGRAFIA */
+  .tipo-section{background:var(--gris-fondo);border:3px solid var(--verde-industrial);padding:3rem}
+  .tipo-row{padding:1.8rem 0;border-bottom:2px dashed var(--gris-claro)}
+  .tipo-row:last-child{border-bottom:none}
+  .tipo-label{display:inline-block;background:var(--verde-industrial);color:var(--amarillo-senal);padding:.3rem .8rem;font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:1.5px;margin-bottom:.8rem}
+  .tipo-sample-h1{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--verde-industrial);line-height:.95;letter-spacing:.01em;text-transform:uppercase}
+  .tipo-sample-h2{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--verde-industrial);line-height:1;text-transform:uppercase;letter-spacing:.02em}
+  .tipo-sample-h3{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--verde-industrial);text-transform:uppercase;letter-spacing:.03em}
+  .tipo-sample-body{font-family:'Karla',sans-serif;font-size:1.05rem;color:var(--negro);max-width:700px;font-weight:400}
+  .tipo-sample-small{font-family:'Karla',sans-serif;font-size:.85rem;color:var(--gris);text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+
+  /* BOTONES DEMO */
+  .botones-demo{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;background:var(--gris-fondo);padding:4rem 3rem;border:3px solid var(--verde-industrial)}
+
+  /* PRODUCTOS */
+  .productos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+  .producto-card{background:var(--blanco);border:3px solid var(--verde-industrial);overflow:hidden;transition:all .25s;position:relative}
+  .producto-card::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:var(--amarillo-senal);z-index:2}
+  .producto-card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--verde-industrial)}
+  .producto-img{height:180px;background:var(--verde-industrial);display:flex;align-items:center;justify-content:center;color:var(--amarillo-senal);font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;text-transform:uppercase;padding:1rem;text-align:center;border-bottom:3px solid var(--amarillo-senal)}
+  .producto-info{padding:1.8rem}
+  .producto-info h3{font-size:1.6rem;margin-bottom:.5rem}
+  .producto-info p{font-size:.9rem;color:var(--gris);margin-bottom:1.2rem}
+  .producto-info a{color:var(--verde-industrial);text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:1.5px;text-transform:uppercase;border-bottom:3px solid var(--amarillo-senal);padding-bottom:3px}
+  .producto-info a:hover{color:var(--amarillo-senal);background:var(--verde-industrial);padding:3px 8px}
+
+  /* SECCION OSCURA */
+  .nosotros-preview{background:var(--verde-industrial);color:var(--blanco);padding:6rem 0;position:relative;overflow:hidden}
+  .nosotros-preview::before{content:'33';position:absolute;right:-5%;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:40rem;color:rgba(244,212,35,.06);line-height:.8;z-index:1}
+  .nosotros-preview .container{position:relative;z-index:2}
+  .nosotros-preview h2{color:var(--blanco)}
+  .nosotros-preview .section-title p{color:rgba(255,255,255,.85)}
+  .nosotros-preview p{color:rgba(255,255,255,.9)}
+
+  /* FOOTER */
+  footer{background:var(--negro);color:var(--blanco);padding:3.5rem 0 2rem;border-top:6px solid var(--amarillo-senal)}
+  footer .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+  footer h4{color:var(--amarillo-senal);font-family:'Bebas Neue',sans-serif;font-size:1.5rem;margin-bottom:1rem;letter-spacing:1.5px}
+  footer p,footer a{color:rgba(255,255,255,.75);font-size:.9rem;text-decoration:none;line-height:1.8}
+  footer a:hover{color:var(--amarillo-senal)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:2rem;padding-top:1.5rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1.5px}
+
+  /* NOTA */
+  .nota-muestra{background:var(--amarillo-senal);color:var(--verde-industrial);padding:1rem 0;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2.5px;border-bottom:3px solid var(--verde-industrial)}
+</style>
+</head>
+<body>
+
+<div class="nota-muestra">
+  OPCIÓN 2 · INDUSTRIAL CORPORATIVO · LÁCTEO INDUSTRIA SOTO
+</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <span>Proveedor mayorista · 33 años de experiencia</span>
+    <span>Cotizaciones: <a href="#">951 458 2985</a></span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="logo-text">LÁCTEO INDUSTRIA <span>SOTO</span></div>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Cobertura</a></li>
+        <li><a href="#">Cotización</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Desde 1993 · 33 Años</span>
+    <h1>Proveedores mayoristas de <span>lácteos oaxaqueños</span> en el sur de México</h1>
+    <p class="lead">Abastecemos cremerías y abarrotes en Chiapas y Oaxaca con productos artesanales de la más alta calidad. Certificado sanitario. Tradición comprobada.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-primary">Solicita Cotización</a>
+      <a href="#" class="btn btn-accent">Ver Productos</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="container">
+    <div>
+      <div class="stat-num">33</div>
+      <div class="stat-label">Años de Experiencia</div>
+    </div>
+    <div>
+      <div class="stat-num">7</div>
+      <div class="stat-label">Productos Artesanales</div>
+    </div>
+    <div>
+      <div class="stat-num">2</div>
+      <div class="stat-label">Estados de Cobertura</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Venta al Mayoreo</div>
+    </div>
+  </div>
+</div>
+
+<!-- PALETA -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">01 · Paleta Industrial</span>
+      <h2>Verde Industrial</h2>
+      <p>Verde profundo corporativo, contraste fuerte con amarillo señal industrial. Transmite peso, autoridad, seriedad B2B.</p>
+    </div>
+    <div class="paleta-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background:#0E3D28"></div>
+        <div class="color-info">
+          <h4>Verde Industrial</h4>
+          <div class="hex">#0E3D28</div>
+          <div class="uso">Hero, headers, footers, elementos estructurales dominantes</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#2A6B47"></div>
+        <div class="color-info">
+          <h4>Verde Medio</h4>
+          <div class="hex">#2A6B47</div>
+          <div class="uso">Hover states, acentos secundarios</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#F4D423"></div>
+        <div class="color-info">
+          <h4>Amarillo Señal</h4>
+          <div class="hex">#F4D423</div>
+          <div class="uso">CTAs, etiquetas, highlights, llamadas de acción</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#FFFFFF;border-bottom:2px solid #0A0A0A"></div>
+        <div class="color-info">
+          <h4>Blanco</h4>
+          <div class="hex">#FFFFFF</div>
+          <div class="uso">Fondos principales, respiración visual</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#0A0A0A"></div>
+        <div class="color-info">
+          <h4>Negro</h4>
+          <div class="hex">#0A0A0A</div>
+          <div class="uso">Texto, footer, bordes de alto contraste</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#4A4A4A"></div>
+        <div class="color-info">
+          <h4>Gris Metálico</h4>
+          <div class="hex">#4A4A4A</div>
+          <div class="uso">Texto secundario, detalles corporativos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPOGRAFIA -->
+<section style="background:var(--gris-fondo)">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">02 · Tipografía</span>
+      <h2>Bebas Neue + Karla</h2>
+      <p>Bebas Neue para títulos (display condensado de alto impacto) · Karla para cuerpo (sans-serif profesional legible)</p>
+    </div>
+    <div class="tipo-section">
+      <div class="tipo-row">
+        <span class="tipo-label">H1 · Bebas Neue</span>
+        <div class="tipo-sample-h1">ORGULLO QUE SE PRODUCE</div>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">H2 · Bebas Neue</span>
+        <div class="tipo-sample-h2">CALIDAD QUE TRASCIENDE DESDE 1993</div>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">H3 · Bebas Neue</span>
+        <div class="tipo-sample-h3">QUESO DE TELA OAXAQUEÑO ARTESANAL</div>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">Cuerpo · Karla 400</span>
+        <p class="tipo-sample-body">En Lácteo Industria Soto elaboramos productos lácteos artesanales propios del estado de Oaxaca, producidos con tradición en Chiapas. Más de tres décadas abasteciendo a cremerías y tiendas de abarrotes con la calidad que distingue al sur de México.</p>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">Small · Karla 600</span>
+        <p class="tipo-sample-small">VENTA EXCLUSIVA AL MAYOREO · COBERTURA CHIAPAS Y OAXACA · CERTIFICADO SANITARIO</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTONES -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">03 · Botones</span>
+      <h2>Llamadas a la Acción</h2>
+      <p>Botones con contornos gruesos y estilo industrial</p>
+    </div>
+    <div class="botones-demo">
+      <a href="#" class="btn btn-primary">Solicitar Cotización</a>
+      <a href="#" class="btn btn-outline">Ver Productos</a>
+      <a href="#" style="display:inline-block;padding:1.1rem 2.5rem;font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:2px;background:var(--verde-industrial);color:var(--blanco);text-decoration:none;border:3px solid var(--verde-industrial);text-transform:uppercase">Descargar Catálogo</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section style="background:var(--gris-fondo)">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">04 · Productos</span>
+      <h2>Cards de Producto</h2>
+      <p>Estilo corporativo industrial con bordes definidos y acentos amarillos</p>
+    </div>
+    <div class="productos-grid">
+      <div class="producto-card">
+        <div class="producto-img">Quesillo de Crema</div>
+        <div class="producto-info">
+          <h3>Quesillo de Crema</h3>
+          <p>Elaborado con crema fresca. Textura suave y sabor intenso característico del quesillo oaxaqueño tradicional.</p>
+          <a href="#">Ver Ficha →</a>
+        </div>
+      </div>
+      <div class="producto-card">
+        <div class="producto-img">Queso de Tela</div>
+        <div class="producto-info">
+          <h3>Queso de Tela</h3>
+          <p>Queso artesanal oaxaqueño envuelto en tela. Producto único con tradición de más de 30 años.</p>
+          <a href="#">Ver Ficha →</a>
+        </div>
+      </div>
+      <div class="producto-card">
+        <div class="producto-img">Queso PVC</div>
+        <div class="producto-info">
+          <h3>Queso PVC</h3>
+          <p>Elaborado bajo estándares sanitarios rigurosos. Ideal para distribución mayorista.</p>
+          <a href="#">Ver Ficha →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="nosotros-preview">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">05 · Sección Oscura</span>
+      <h2>Tres Décadas de Tradición</h2>
+    </div>
+    <div style="max-width:800px;margin:0 auto;text-align:center">
+      <p style="font-size:1.2rem">Desde Santa María del Tule, tierra de tradición y grandeza, nace una empresa que hoy representa calidad, compromiso y visión. En 1993, Martín Soto Bautista inició un proyecto con determinación firme, dando origen a lo que hoy es Lácteo Industria Soto.</p>
+      <div style="margin-top:2.5rem">
+        <a href="#" class="btn btn-primary">Conoce Nuestra Historia</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div>
+      <h4>Lácteo Industria Soto</h4>
+      <p>Proveedor mayorista de lácteos oaxaqueños. 33 años de tradición en el sur de México.</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p>3 Era Sur s/n<br>30450 Arriaga, Chiapas</p>
+      <p><a href="#">951 458 2985</a></p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <p><a href="#">Inicio</a></p>
+      <p><a href="#">Nosotros</a></p>
+      <p><a href="#">Productos</a></p>
+      <p><a href="#">Cotización</a></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 Lácteo Industria Soto S.A. de C.V.</p>
+  </div>
+</footer>
+
+</body>
+</html>

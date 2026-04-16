@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muestra Visual — Lácteo Industria Soto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde-oscuro:#1F4F3A;
+    --verde-pasto:#3D7A5B;
+    --crema:#FAF6EC;
+    --negro:#1A1A1A;
+    --gris:#6B6B63;
+    --dorado:#D4A017;
+    --dorado-suave:#E8C04C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--crema);
+    color:var(--negro);
+    line-height:1.6;
+    font-size:16px;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;line-height:1.2;color:var(--verde-oscuro)}
+  h1{font-size:clamp(2.5rem,5vw,4rem)}
+  h2{font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:.5rem}
+  h3{font-size:1.4rem}
+  p{margin-bottom:1rem;color:var(--negro)}
+  .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+
+  /* HEADER */
+  .top-bar{background:var(--verde-oscuro);color:var(--crema);padding:.8rem 0;font-size:.85rem}
+  .top-bar .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  .top-bar a{color:var(--dorado-suave);text-decoration:none}
+
+  header{background:var(--crema);padding:1.5rem 0;border-bottom:2px solid var(--verde-oscuro)}
+  header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .logo-text{font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;color:var(--verde-oscuro)}
+  .logo-text span{color:var(--dorado)}
+  nav ul{display:flex;gap:2rem;list-style:none;flex-wrap:wrap}
+  nav a{color:var(--verde-oscuro);text-decoration:none;font-weight:500;font-size:.95rem;transition:color .2s}
+  nav a:hover{color:var(--dorado)}
+
+  /* HERO */
+  .hero{padding:5rem 0;background:var(--crema);text-align:center;border-bottom:1px solid rgba(31,79,58,.1)}
+  .hero .eyebrow{color:var(--dorado);font-family:'Inter',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:2px;font-size:.8rem;margin-bottom:1rem;display:block}
+  .hero h1{margin-bottom:1.5rem;max-width:900px;margin-left:auto;margin-right:auto}
+  .hero p.lead{font-size:1.2rem;color:var(--gris);max-width:700px;margin:0 auto 2.5rem}
+  .hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+  /* BOTONES */
+  .btn{display:inline-block;padding:.95rem 2rem;font-family:'Inter',sans-serif;font-weight:600;font-size:.95rem;text-decoration:none;border-radius:4px;transition:all .25s;cursor:pointer;border:2px solid transparent}
+  .btn-primary{background:var(--verde-oscuro);color:var(--crema)}
+  .btn-primary:hover{background:var(--verde-pasto);transform:translateY(-2px)}
+  .btn-accent{background:var(--dorado);color:var(--verde-oscuro)}
+  .btn-accent:hover{background:var(--dorado-suave);transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:var(--verde-oscuro);border:2px solid var(--verde-oscuro)}
+  .btn-outline:hover{background:var(--verde-oscuro);color:var(--crema)}
+
+  /* SECCIONES DE MUESTRA */
+  section{padding:5rem 0}
+  .section-title{text-align:center;margin-bottom:3rem}
+  .section-title .eyebrow{color:var(--dorado);font-weight:600;text-transform:uppercase;letter-spacing:2px;font-size:.8rem;display:block;margin-bottom:.5rem}
+  .section-title p{color:var(--gris);max-width:600px;margin:0 auto}
+
+  /* PALETA */
+  .paleta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+  .color-card{background:var(--crema);border:1px solid rgba(31,79,58,.15);border-radius:8px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+  .color-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(31,79,58,.12)}
+  .color-swatch{height:140px}
+  .color-info{padding:1.5rem}
+  .color-info h4{font-family:'Fraunces',serif;color:var(--verde-oscuro);font-size:1.1rem;margin-bottom:.3rem}
+  .color-info .hex{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--gris);font-weight:500;letter-spacing:1px}
+  .color-info .uso{font-size:.85rem;color:var(--gris);margin-top:.8rem;line-height:1.5}
+
+  /* TIPOGRAFIA */
+  .tipo-section{background:#fff;border:1px solid rgba(31,79,58,.12);border-radius:8px;padding:3rem}
+  .tipo-row{padding:1.8rem 0;border-bottom:1px solid rgba(31,79,58,.08)}
+  .tipo-row:last-child{border-bottom:none}
+  .tipo-label{font-family:'Inter',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--dorado);font-weight:600;margin-bottom:.8rem;display:block}
+  .tipo-sample-h1{font-family:'Fraunces',serif;font-size:3.5rem;font-weight:700;color:var(--verde-oscuro);line-height:1.1}
+  .tipo-sample-h2{font-family:'Fraunces',serif;font-size:2.3rem;font-weight:600;color:var(--verde-oscuro);line-height:1.2}
+  .tipo-sample-h3{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;color:var(--verde-oscuro)}
+  .tipo-sample-body{font-family:'Inter',sans-serif;font-size:1.05rem;color:var(--negro);max-width:700px}
+  .tipo-sample-small{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--gris)}
+
+  /* BOTONES DEMO */
+  .botones-demo{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;background:#fff;padding:3rem;border-radius:8px;border:1px solid rgba(31,79,58,.12)}
+
+  /* CARDS DE PRODUCTO (ejemplo) */
+  .productos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:2rem}
+  .producto-card{background:#fff;border:1px solid rgba(31,79,58,.12);border-radius:8px;overflow:hidden;transition:all .3s}
+  .producto-card:hover{transform:translateY(-6px);box-shadow:0 15px 35px rgba(31,79,58,.15);border-color:var(--verde-pasto)}
+  .producto-img{height:200px;background:linear-gradient(135deg,var(--verde-pasto) 0%,var(--verde-oscuro) 100%);display:flex;align-items:center;justify-content:center;color:var(--crema);font-family:'Fraunces',serif;font-size:1.3rem;font-weight:500}
+  .producto-info{padding:1.8rem}
+  .producto-info h3{font-size:1.3rem;margin-bottom:.5rem}
+  .producto-info p{font-size:.9rem;color:var(--gris);margin-bottom:1.2rem}
+  .producto-info a{color:var(--dorado);text-decoration:none;font-weight:600;font-size:.9rem;display:inline-flex;align-items:center;gap:.4rem}
+  .producto-info a:hover{color:var(--verde-oscuro)}
+
+  /* SECCIÓN OSCURA (preview de nosotros) */
+  .nosotros-preview{background:var(--verde-oscuro);color:var(--crema);padding:5rem 0}
+  .nosotros-preview h2{color:var(--crema)}
+  .nosotros-preview .eyebrow{color:var(--dorado-suave)}
+  .nosotros-preview p{color:rgba(250,246,236,.85);max-width:700px}
+  .nosotros-preview .section-title p{color:rgba(250,246,236,.85)}
+
+  /* FOOTER */
+  footer{background:var(--verde-oscuro);color:var(--crema);padding:3rem 0 2rem;border-top:4px solid var(--dorado)}
+  footer .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+  footer h4{color:var(--dorado-suave);font-family:'Fraunces',serif;font-size:1.2rem;margin-bottom:1rem}
+  footer p, footer a{color:rgba(250,246,236,.85);font-size:.9rem;text-decoration:none;line-height:1.8}
+  footer a:hover{color:var(--dorado)}
+  .footer-bottom{border-top:1px solid rgba(250,246,236,.15);margin-top:2rem;padding-top:1.5rem;text-align:center;font-size:.8rem;color:rgba(250,246,236,.6)}
+
+  /* NOTA INFORMATIVA */
+  .nota-muestra{background:var(--dorado);color:var(--verde-oscuro);padding:1rem 0;text-align:center;font-size:.85rem;font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="nota-muestra">
+  MUESTRA VISUAL · PALETA Y TIPOGRAFÍA · LÁCTEO INDUSTRIA SOTO
+</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <span>Proveedor mayorista · 33 años de experiencia</span>
+    <span>Cotizaciones: <a href="#">951 458 2985</a></span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="logo-text">Lácteo Industria <span>Soto</span></div>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Cobertura</a></li>
+        <li><a href="#">Cotización</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Desde 1993</span>
+    <h1>Proveedor mayorista de lácteos oaxaqueños artesanales</h1>
+    <p class="lead">33 años elaborando productos con tradición para cremerías y abarrotes en Chiapas y Oaxaca. Calidad que trasciende, orgullo que se produce.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-accent">Solicita tu cotización</a>
+      <a href="#" class="btn btn-outline">Ver productos</a>
+    </div>
+  </div>
+</section>
+
+<!-- PALETA DE COLORES -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">01 · Paleta de colores</span>
+      <h2>Verde Campo</h2>
+      <p>Anclada en el verde del logo, complementada con crema y dorado. Transmite tradición, calidad artesanal y seriedad B2B.</p>
+    </div>
+    <div class="paleta-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background:#1F4F3A"></div>
+        <div class="color-info">
+          <h4>Verde Soto oscuro</h4>
+          <div class="hex">#1F4F3A</div>
+          <div class="uso">Headers, footer, texto importante, botones primarios</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#3D7A5B"></div>
+        <div class="color-info">
+          <h4>Verde pasto</h4>
+          <div class="hex">#3D7A5B</div>
+          <div class="uso">Hover states, acentos secundarios, iconos</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#FAF6EC;border-bottom:1px solid rgba(31,79,58,.1)"></div>
+        <div class="color-info">
+          <h4>Crema marfil</h4>
+          <div class="hex">#FAF6EC</div>
+          <div class="uso">Fondo principal de secciones (en vez de blanco puro)</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#1A1A1A"></div>
+        <div class="color-info">
+          <h4>Negro carbón</h4>
+          <div class="hex">#1A1A1A</div>
+          <div class="uso">Texto de párrafo, elementos estructurales</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#6B6B63"></div>
+        <div class="color-info">
+          <h4>Gris piedra</h4>
+          <div class="hex">#6B6B63</div>
+          <div class="uso">Texto secundario, subtítulos, bordes sutiles</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#D4A017"></div>
+        <div class="color-info">
+          <h4>Dorado Soto</h4>
+          <div class="hex">#D4A017</div>
+          <div class="uso">CTAs, subrayados, highlights estratégicos (uso limitado)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPOGRAFIA -->
+<section style="background:#fff">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">02 · Tipografía</span>
+      <h2>Fraunces + Inter</h2>
+      <p>Fraunces para títulos (carácter artesanal premium) · Inter para cuerpo (legibilidad profesional B2B)</p>
+    </div>
+    <div class="tipo-section">
+      <div class="tipo-row">
+        <span class="tipo-label">H1 · Fraunces 700</span>
+        <div class="tipo-sample-h1">Orgullo que se produce</div>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">H2 · Fraunces 600</span>
+        <div class="tipo-sample-h2">Calidad que trasciende desde 1993</div>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">H3 · Fraunces 600</span>
+        <div class="tipo-sample-h3">Queso de tela oaxaqueño artesanal</div>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">Cuerpo · Inter 400</span>
+        <p class="tipo-sample-body">En Lácteo Industria Soto elaboramos productos lácteos artesanales propios del estado de Oaxaca, producidos con tradición en Chiapas. Más de tres décadas abasteciendo a cremerías y tiendas de abarrotes con la calidad que distingue al sur de México.</p>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">Cuerpo pequeño · Inter 400</span>
+        <p class="tipo-sample-small">Venta exclusiva al mayoreo · Cobertura en Chiapas y Oaxaca · Certificado sanitario vigente</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTONES -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">03 · Botones y llamadas a la acción</span>
+      <h2>Componentes principales</h2>
+      <p>Los tres estilos de botón que usaremos en el sitio</p>
+    </div>
+    <div class="botones-demo">
+      <a href="#" class="btn btn-primary">Botón primario</a>
+      <a href="#" class="btn btn-accent">Botón acento (CTA)</a>
+      <a href="#" class="btn btn-outline">Botón secundario</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS (ejemplo) -->
+<section style="background:#fff">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">04 · Cards de producto</span>
+      <h2>Ejemplo de cómo se verán los productos</h2>
+      <p>Cada producto tendrá su propia página. Esta es la vista previa de las cards del Home y la sección de productos.</p>
+    </div>
+    <div class="productos-grid">
+      <div class="producto-card">
+        <div class="producto-img">Quesillo de Crema</div>
+        <div class="producto-info">
+          <h3>Quesillo de Crema</h3>
+          <p>Elaborado con crema fresca. Textura suave y sabor intenso característico del quesillo oaxaqueño tradicional.</p>
+          <a href="#">Ver ficha del producto →</a>
+        </div>
+      </div>
+      <div class="producto-card">
+        <div class="producto-img">Queso de Tela</div>
+        <div class="producto-info">
+          <h3>Queso de Tela</h3>
+          <p>Queso artesanal oaxaqueño envuelto en tela. Producto único con tradición de más de 30 años.</p>
+          <a href="#">Ver ficha del producto →</a>
+        </div>
+      </div>
+      <div class="producto-card">
+        <div class="producto-img">Queso PVC</div>
+        <div class="producto-info">
+          <h3>Queso PVC</h3>
+          <p>Elaborado bajo estándares sanitarios rigurosos. Ideal para distribución mayorista y conservación óptima.</p>
+          <a href="#">Ver ficha del producto →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN OSCURA (preview nosotros) -->
+<section class="nosotros-preview">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">05 · Sección oscura</span>
+      <h2>Así se verá una sección con fondo verde</h2>
+      <p>Ideal para "Nosotros", historia, valores o llamadas a la acción destacadas.</p>
+    </div>
+    <div style="max-width:800px;margin:0 auto;text-align:center">
+      <p style="font-size:1.15rem">Desde Santa María del Tule, tierra de tradición y grandeza, nace una empresa que hoy representa calidad, compromiso y visión. En 1993, Martín Soto Bautista inició un proyecto con determinación firme, dando origen a lo que hoy es Lácteo Industria Soto.</p>
+      <div style="margin-top:2.5rem">
+        <a href="#" class="btn btn-accent">Conoce nuestra historia</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div>
+      <h4>Lácteo Industria Soto</h4>
+      <p>Proveedor mayorista de lácteos oaxaqueños artesanales. Más de 33 años elaborando productos con tradición.</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p>3 Era Sur s/n<br>30450 Arriaga, Chiapas</p>
+      <p><a href="#">951 458 2985</a></p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <p><a href="#">Inicio</a></p>
+      <p><a href="#">Nosotros</a></p>
+      <p><a href="#">Productos</a></p>
+      <p><a href="#">Cotización</a></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 Lácteo Industria Soto S.A. de C.V. · Todos los derechos reservados</p>
+  </div>
+</footer>
+
+</body>
+</html>

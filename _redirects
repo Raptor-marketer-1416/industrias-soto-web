@@ -1,0 +1,19 @@
+# Redirecciones Cloudflare Pages — Lácteo Industria Soto
+#
+# NOTA IMPORTANTE (aprendizaje Fumigaciones Metropolitan, abril 2026):
+# NO forzar trailing slash aquí. Cloudflare Pages ya redirige /slug → /slug/
+# automáticamente con 308 cuando la estructura es slug/index.html (directorios).
+# Añadir reglas manuales es redundante y en sitios con .html planos causa loop.
+# Ver: Lecciones Aprendidas.md en el cerebro digital.
+
+# Forzar apex (sin www)
+https://www.lacteosoto.com/*   https://lacteosoto.com/:splat   301!
+
+# Legacy .html → directorio (por si algún enlace externo usa estas rutas)
+/index.html                    /                               301
+/nosotros.html                 /nosotros/                      301
+/productos.html                /productos/                     301
+/cobertura.html                /cobertura/                     301
+/contacto.html                 /contacto/                      301
+/aviso-de-privacidad.html      /aviso-de-privacidad/           301
+/terminos-y-condiciones.html   /terminos-y-condiciones/        301

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muestra Visual · Opción 3 — Lácteo Industria Soto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --terracota:#8B3E1F;
+    --terracota-oscuro:#5C2816;
+    --madera:#6B4226;
+    --crema-hueso:#FAF1E1;
+    --crema-claro:#FDF8EC;
+    --negro-tinta:#1F1A15;
+    --ocre:#C68E17;
+    --beige:#E8D5B7;
+    --gris-tierra:#7A6B5D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Lora',serif;
+    background:var(--crema-hueso);
+    color:var(--negro-tinta);
+    line-height:1.7;
+    font-size:16px;
+  }
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.15;color:var(--terracota-oscuro)}
+  h1{font-size:clamp(2.8rem,5.5vw,4.5rem);letter-spacing:-.01em}
+  h2{font-size:clamp(2rem,4vw,3.2rem);margin-bottom:.5rem}
+  h3{font-size:1.5rem}
+  p{margin-bottom:1rem;color:var(--negro-tinta);font-weight:400}
+  em,.italic{font-style:italic;font-family:'Playfair Display',serif;color:var(--terracota)}
+  .container{max-width:1180px;margin:0 auto;padding:0 2rem}
+
+  /* HEADER */
+  .top-bar{background:var(--terracota-oscuro);color:var(--crema-hueso);padding:.75rem 0;font-size:.85rem;font-family:'Lora',serif}
+  .top-bar .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  .top-bar a{color:var(--ocre);text-decoration:none;font-weight:600}
+
+  header{background:var(--crema-hueso);padding:1.8rem 0;border-bottom:1px solid rgba(139,62,31,.2)}
+  header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .logo-text{font-family:'Playfair Display',serif;font-weight:800;font-size:1.7rem;color:var(--terracota-oscuro);letter-spacing:-.01em}
+  .logo-text span{color:var(--ocre);font-style:italic;font-weight:700}
+  nav ul{display:flex;gap:2.3rem;list-style:none;flex-wrap:wrap}
+  nav a{color:var(--terracota-oscuro);text-decoration:none;font-family:'Lora',serif;font-weight:500;font-size:.98rem;transition:color .2s;position:relative;padding-bottom:4px}
+  nav a::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:1px;background:var(--ocre);transition:all .3s}
+  nav a:hover{color:var(--terracota)}
+  nav a:hover::after{left:0;right:0}
+
+  /* HERO */
+  .hero{padding:6rem 0;background:var(--crema-hueso);text-align:center;position:relative}
+  .hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;max-width:900px;height:1px;background:linear-gradient(90deg,transparent,rgba(139,62,31,.15),transparent)}
+  .hero .container{position:relative;z-index:2}
+  .hero .eyebrow{color:var(--ocre);font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;margin-bottom:1rem;display:block;font-weight:500}
+  .hero .eyebrow::before,.hero .eyebrow::after{content:'—';margin:0 1rem;color:rgba(198,142,23,.6)}
+  .hero h1{margin-bottom:1.8rem;max-width:950px;margin-left:auto;margin-right:auto}
+  .hero h1 em{color:var(--ocre)}
+  .hero p.lead{font-size:1.2rem;color:var(--gris-tierra);max-width:720px;margin:0 auto 2.8rem;font-family:'Lora',serif;font-style:italic;line-height:1.7}
+  .hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+  /* ORNAMENTO DECORATIVO */
+  .ornament{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2rem auto;color:var(--ocre)}
+  .ornament::before,.ornament::after{content:'';flex:1;max-width:100px;height:1px;background:rgba(198,142,23,.5)}
+  .ornament span{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--ocre)}
+
+  /* BOTONES */
+  .btn{display:inline-block;padding:1rem 2.2rem;font-family:'Lora',serif;font-weight:600;font-size:.95rem;text-decoration:none;border-radius:2px;transition:all .3s;cursor:pointer;border:1.5px solid transparent;letter-spacing:.3px}
+  .btn-primary{background:var(--terracota-oscuro);color:var(--crema-hueso);border-color:var(--terracota-oscuro)}
+  .btn-primary:hover{background:var(--terracota);border-color:var(--terracota);transform:translateY(-2px)}
+  .btn-accent{background:var(--ocre);color:var(--terracota-oscuro);border-color:var(--ocre)}
+  .btn-accent:hover{background:var(--terracota-oscuro);color:var(--ocre);border-color:var(--terracota-oscuro);transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:var(--terracota-oscuro);border:1.5px solid var(--terracota-oscuro)}
+  .btn-outline:hover{background:var(--terracota-oscuro);color:var(--crema-hueso)}
+
+  /* SECCIONES */
+  section{padding:5rem 0}
+  .section-title{text-align:center;margin-bottom:3.5rem}
+  .section-title .eyebrow{color:var(--ocre);font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;display:block;margin-bottom:.5rem}
+  .section-title p{color:var(--gris-tierra);max-width:620px;margin:1rem auto 0;font-family:'Lora',serif;font-style:italic;line-height:1.7}
+
+  /* PALETA */
+  .paleta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+  .color-card{background:var(--crema-claro);border:1px solid rgba(139,62,31,.15);border-radius:4px;overflow:hidden;transition:all .3s}
+  .color-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(92,40,22,.15);border-color:rgba(139,62,31,.3)}
+  .color-swatch{height:150px}
+  .color-info{padding:1.6rem}
+  .color-info h4{font-family:'Playfair Display',serif;color:var(--terracota-oscuro);font-size:1.2rem;margin-bottom:.3rem;font-weight:700}
+  .color-info .hex{font-family:'Lora',serif;font-size:.85rem;color:var(--gris-tierra);font-weight:500;letter-spacing:1px;font-style:italic}
+  .color-info .uso{font-size:.88rem;color:var(--gris-tierra);margin-top:.8rem;line-height:1.6}
+
+  /* TIPOGRAFIA */
+  .tipo-section{background:var(--crema-claro);border:1px solid rgba(139,62,31,.15);border-radius:4px;padding:3.5rem;position:relative}
+  .tipo-section::before{content:'';position:absolute;top:1rem;left:1rem;right:1rem;bottom:1rem;border:1px solid rgba(198,142,23,.25);pointer-events:none;border-radius:2px}
+  .tipo-row{padding:2rem 0;border-bottom:1px solid rgba(139,62,31,.08);position:relative;z-index:1}
+  .tipo-row:last-child{border-bottom:none}
+  .tipo-label{font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:var(--ocre);margin-bottom:.8rem;display:block}
+  .tipo-sample-h1{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;color:var(--terracota-oscuro);line-height:1.1}
+  .tipo-sample-h2{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--terracota-oscuro);line-height:1.15}
+  .tipo-sample-h3{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:600;color:var(--terracota-oscuro)}
+  .tipo-sample-body{font-family:'Lora',serif;font-size:1.08rem;color:var(--negro-tinta);max-width:720px;line-height:1.8}
+  .tipo-sample-small{font-family:'Lora',serif;font-style:italic;font-size:.92rem;color:var(--gris-tierra)}
+
+  /* BOTONES DEMO */
+  .botones-demo{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;background:var(--crema-claro);padding:4rem 3rem;border:1px solid rgba(139,62,31,.15);border-radius:4px}
+
+  /* PRODUCTOS */
+  .productos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:2rem}
+  .producto-card{background:var(--crema-claro);border:1px solid rgba(139,62,31,.15);border-radius:4px;overflow:hidden;transition:all .4s;position:relative}
+  .producto-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(92,40,22,.15);border-color:var(--ocre)}
+  .producto-img{height:210px;background:linear-gradient(135deg,var(--terracota) 0%,var(--terracota-oscuro) 100%);display:flex;align-items:center;justify-content:center;color:var(--crema-hueso);font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;font-style:italic;position:relative}
+  .producto-img::after{content:'';position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);width:40px;height:2px;background:var(--ocre)}
+  .producto-info{padding:2rem}
+  .producto-info h3{font-size:1.4rem;margin-bottom:.6rem}
+  .producto-info p{font-size:.95rem;color:var(--gris-tierra);margin-bottom:1.3rem;font-style:italic;line-height:1.7}
+  .producto-info a{color:var(--ocre);text-decoration:none;font-family:'Playfair Display',serif;font-style:italic;font-size:1.02rem;font-weight:600;border-bottom:1px solid transparent;transition:border-color .3s}
+  .producto-info a:hover{border-bottom-color:var(--ocre)}
+
+  /* SECCION OSCURA */
+  .nosotros-preview{background:var(--terracota-oscuro);color:var(--crema-hueso);padding:6rem 0;position:relative;overflow:hidden}
+  .nosotros-preview::before{content:'';position:absolute;top:2rem;left:2rem;right:2rem;bottom:2rem;border:1px solid rgba(198,142,23,.2);pointer-events:none}
+  .nosotros-preview .container{position:relative;z-index:2}
+  .nosotros-preview h2{color:var(--crema-hueso)}
+  .nosotros-preview .section-title .eyebrow{color:var(--ocre)}
+  .nosotros-preview .section-title p{color:rgba(250,241,225,.8)}
+  .nosotros-preview p{color:rgba(250,241,225,.9)}
+
+  /* FOOTER */
+  footer{background:var(--terracota-oscuro);color:var(--crema-hueso);padding:4rem 0 2rem;border-top:3px double var(--ocre)}
+  footer .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2.5rem}
+  footer h4{color:var(--ocre);font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:1rem;font-style:italic;font-weight:600}
+  footer p,footer a{color:rgba(250,241,225,.8);font-size:.92rem;text-decoration:none;line-height:1.9;font-family:'Lora',serif}
+  footer a:hover{color:var(--ocre)}
+  .footer-bottom{border-top:1px solid rgba(250,241,225,.15);margin-top:2.5rem;padding-top:1.8rem;text-align:center;font-size:.85rem;color:rgba(250,241,225,.55);font-style:italic}
+
+  /* NOTA */
+  .nota-muestra{background:var(--ocre);color:var(--terracota-oscuro);padding:1rem 0;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;font-weight:600;letter-spacing:.5px}
+</style>
+</head>
+<body>
+
+<div class="nota-muestra">
+  Opción 3 · Herencia Oaxaqueña · Lácteo Industria Soto
+</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <span><em>Proveedor mayorista</em> · 33 años de tradición</span>
+    <span>Cotizaciones: <a href="#">951 458 2985</a></span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="logo-text">Lácteo Industria <span>Soto</span></div>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Cobertura</a></li>
+        <li><a href="#">Cotización</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Desde 1993</span>
+    <h1>Tradición láctea del sur de México, <em>hecha a mano</em></h1>
+    <p class="lead">Más de tres décadas elaborando productos artesanales oaxaqueños para las cremerías y tiendas que conservan el auténtico sabor de nuestras raíces.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-primary">Solicita tu cotización</a>
+      <a href="#" class="btn btn-outline">Conoce la historia</a>
+    </div>
+    <div class="ornament"><span>✦</span></div>
+  </div>
+</section>
+
+<!-- PALETA -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">— Capítulo primero —</span>
+      <h2>Paleta: Barro Oaxaqueño</h2>
+      <p>Inspirada en la arcilla, el barro negro y los tonos cálidos de la tierra del sur. Transmite herencia mexicana, artesanía premium y calidez tradicional.</p>
+    </div>
+    <div class="paleta-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background:#8B3E1F"></div>
+        <div class="color-info">
+          <h4>Terracota</h4>
+          <div class="hex">#8B3E1F</div>
+          <div class="uso">Acentos, hover states, elementos destacados</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#5C2816"></div>
+        <div class="color-info">
+          <h4>Terracota Oscura</h4>
+          <div class="hex">#5C2816</div>
+          <div class="uso">Títulos, footer, headers, botones primarios</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#C68E17"></div>
+        <div class="color-info">
+          <h4>Ocre Dorado</h4>
+          <div class="hex">#C68E17</div>
+          <div class="uso">CTAs, detalles decorativos, highlights</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#FAF1E1;border-bottom:1px solid rgba(139,62,31,.2)"></div>
+        <div class="color-info">
+          <h4>Crema Hueso</h4>
+          <div class="hex">#FAF1E1</div>
+          <div class="uso">Fondo principal, secciones claras</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#E8D5B7"></div>
+        <div class="color-info">
+          <h4>Beige Tierra</h4>
+          <div class="hex">#E8D5B7</div>
+          <div class="uso">Bordes sutiles, separadores, elementos decorativos</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#1F1A15"></div>
+        <div class="color-info">
+          <h4>Tinta</h4>
+          <div class="hex">#1F1A15</div>
+          <div class="uso">Texto de párrafo, contenido principal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPOGRAFIA -->
+<section style="background:var(--crema-claro)">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">— Capítulo segundo —</span>
+      <h2>Tipografía: Playfair Display + Lora</h2>
+      <p>Doble serif de estilo editorial gastronómico. Playfair para títulos (elegancia clásica) y Lora para cuerpo (serif legible con carácter cálido).</p>
+    </div>
+    <div class="tipo-section">
+      <div class="tipo-row">
+        <span class="tipo-label">H1 · Playfair Display 700</span>
+        <div class="tipo-sample-h1">Orgullo que se <em>produce</em></div>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">H2 · Playfair Display 700</span>
+        <div class="tipo-sample-h2">Calidad que trasciende desde 1993</div>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">H3 · Playfair Display 600</span>
+        <div class="tipo-sample-h3">Queso de tela oaxaqueño artesanal</div>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">Cuerpo · Lora 400</span>
+        <p class="tipo-sample-body">En Lácteo Industria Soto elaboramos productos lácteos artesanales propios del estado de Oaxaca, producidos con tradición en Chiapas. Más de tres décadas abasteciendo a cremerías y tiendas de abarrotes con la calidad que distingue al sur de México.</p>
+      </div>
+      <div class="tipo-row">
+        <span class="tipo-label">Small cursiva · Lora Italic</span>
+        <p class="tipo-sample-small">Venta exclusiva al mayoreo · Cobertura en Chiapas y Oaxaca · Certificado sanitario vigente</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTONES -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">— Capítulo tercero —</span>
+      <h2>Botones y llamadas a la acción</h2>
+      <p>Elegantes, discretos, con toques editoriales sin perder funcionalidad</p>
+    </div>
+    <div class="botones-demo">
+      <a href="#" class="btn btn-primary">Solicita tu cotización</a>
+      <a href="#" class="btn btn-accent">Descargar catálogo</a>
+      <a href="#" class="btn btn-outline">Ver productos</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section style="background:var(--crema-claro)">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">— Capítulo cuarto —</span>
+      <h2>Nuestros productos artesanales</h2>
+      <p>Así se presentarán los siete productos en el catálogo del sitio</p>
+    </div>
+    <div class="productos-grid">
+      <div class="producto-card">
+        <div class="producto-img">Quesillo de Crema</div>
+        <div class="producto-info">
+          <h3>Quesillo de Crema</h3>
+          <p>Elaborado con crema fresca. Textura suave y sabor intenso característico del quesillo oaxaqueño tradicional.</p>
+          <a href="#">Ver ficha del producto →</a>
+        </div>
+      </div>
+      <div class="producto-card">
+        <div class="producto-img">Queso de Tela</div>
+        <div class="producto-info">
+          <h3>Queso de Tela</h3>
+          <p>Queso artesanal oaxaqueño envuelto en tela. Producto único con tradición de más de 30 años.</p>
+          <a href="#">Ver ficha del producto →</a>
+        </div>
+      </div>
+      <div class="producto-card">
+        <div class="producto-img">Queso PVC</div>
+        <div class="producto-info">
+          <h3>Queso PVC</h3>
+          <p>Elaborado bajo estándares sanitarios rigurosos. Ideal para distribución mayorista y conservación óptima.</p>
+          <a href="#">Ver ficha del producto →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="nosotros-preview">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">— Capítulo quinto —</span>
+      <h2>Una historia que se hereda</h2>
+    </div>
+    <div style="max-width:820px;margin:0 auto;text-align:center">
+      <p style="font-size:1.18rem;font-family:'Lora',serif">Desde Santa María del Tule, tierra de tradición y grandeza, nace una empresa que hoy representa calidad, compromiso y visión. En 1993, <em style="color:var(--ocre)">Martín Soto Bautista</em> inició un proyecto con determinación firme, dando origen a lo que hoy es Lácteo Industria Soto.</p>
+      <div style="margin-top:2.8rem">
+        <a href="#" class="btn btn-accent">Conoce nuestra historia</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div>
+      <h4>Lácteo Industria Soto</h4>
+      <p>Proveedor mayorista de lácteos oaxaqueños artesanales. Más de 33 años elaborando productos con tradición.</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p>3 Era Sur s/n<br>30450 Arriaga, Chiapas</p>
+      <p><a href="#">951 458 2985</a></p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <p><a href="#">Inicio</a></p>
+      <p><a href="#">Nosotros</a></p>
+      <p><a href="#">Productos</a></p>
+      <p><a href="#">Cotización</a></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 Lácteo Industria Soto S.A. de C.V. · Todos los derechos reservados</p>
+  </div>
+</footer>
+
+</body>
+</html>
