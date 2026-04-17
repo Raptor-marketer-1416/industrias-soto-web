@@ -119,7 +119,7 @@ body:has(.hero-interno) .site-header:not(.scrolled) .main-nav a.cta-nav:hover{ba
   color:var(--verde-oscuro);
 }
 .logo img,
-.logo-img{height:64px;width:auto;display:block}
+.logo-img{height:90px;width:auto;display:block}
 .logo-text{
   font-family:var(--font-display);
   font-weight:700;
@@ -837,7 +837,7 @@ section{padding:5rem 0}
 .footer-col a:hover{color:var(--dorado)}
 .footer-col .logo-text{color:var(--crema);font-size:1.4rem;margin-bottom:1rem}
 .footer-col .logo-text span{color:var(--dorado)}
-.footer-col .logo-img{height:72px;width:auto;display:block;margin-bottom:1rem}
+.footer-col .logo-img{height:101px;width:auto;display:block;margin-bottom:1rem}
 .footer-bottom{
   border-top:1px solid rgba(250,246,236,.1);
   padding:1.8rem 0;
