@@ -81,7 +81,19 @@ ul,ol{list-style:none}
   left:0;
   right:0;
   z-index:100;
+  transition:background .3s ease, backdrop-filter .3s ease;
 }
+.site-header:hover{
+  background:rgba(31,79,58,.88);
+  backdrop-filter:blur(12px) saturate(1.3);
+  -webkit-backdrop-filter:blur(12px) saturate(1.3);
+}
+.site-header:hover .logo,
+.site-header:hover .main-nav a{color:var(--crema)}
+.site-header:hover .main-nav a:hover,
+.site-header:hover .main-nav a.active{color:var(--dorado-suave)}
+.site-header:hover .main-nav a.cta-nav{background:var(--dorado);color:var(--verde-oscuro)}
+.site-header:hover .menu-toggle span{background:var(--crema)}
 
 /* Pages with dark hero (hero-interno or hero-oscuro): header blends with the dark bg */
 body:has(.hero-interno) .site-header .logo,
