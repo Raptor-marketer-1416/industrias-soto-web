@@ -1,5 +1,7 @@
 .playwright-mcp/
+.wrangler/
 .DS_Store
 Thumbs.db
 node_modules/
 *.log
+*.png
