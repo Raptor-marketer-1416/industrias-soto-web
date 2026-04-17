@@ -74,7 +74,7 @@ ul,ol{list-style:none}
    ============================================ */
 .site-header{
   background:transparent;
-  padding:1.2rem 0;
+  padding:.5rem 0;
   border-bottom:1px solid transparent;
   position:sticky;
   top:0;
@@ -87,7 +87,7 @@ ul,ol{list-style:none}
   -webkit-backdrop-filter:blur(18px) saturate(1.4);
   border-bottom-color:rgba(0,0,0,.08);
   box-shadow:0 8px 28px rgba(0,0,0,.12);
-  padding:.7rem 0;
+  padding:.35rem 0;
 }
 
 /* Pages with dark hero-interno: header at top blends with the dark background */
@@ -119,7 +119,7 @@ body:has(.hero-interno) .site-header:not(.scrolled) .main-nav a.cta-nav:hover{ba
   color:var(--verde-oscuro);
 }
 .logo img,
-.logo-img{height:90px;width:auto;display:block}
+.logo-img{height:117px;width:auto;display:block}
 .logo-text{
   font-family:var(--font-display);
   font-weight:700;
@@ -271,7 +271,8 @@ section{padding:5rem 0}
    HERO
    ============================================ */
 .hero{
-  padding:6rem 0 5rem;
+  padding:calc(6rem + 134px) 0 5rem;
+  margin-top:-134px;
   background:var(--crema);
   position:relative;
   overflow:hidden;
