@@ -84,9 +84,9 @@ ul,ol{list-style:none}
   transition:background .3s ease, backdrop-filter .3s ease;
 }
 .site-header:hover{
-  background:rgba(31,79,58,.88);
-  backdrop-filter:blur(12px) saturate(1.3);
-  -webkit-backdrop-filter:blur(12px) saturate(1.3);
+  background:rgba(31,79,58,.62);
+  backdrop-filter:blur(10px) saturate(1.2);
+  -webkit-backdrop-filter:blur(10px) saturate(1.2);
 }
 .site-header:hover .logo,
 .site-header:hover .main-nav a{color:var(--crema)}
@@ -514,7 +514,7 @@ section{padding:5rem 0}
    FICHA DE PRODUCTO (páginas internas)
    ============================================ */
 .producto-hero{
-  padding:4rem 0;
+  padding:calc(4rem + 134px) 0 4rem;
   background:var(--crema);
 }
 .producto-hero .container{
