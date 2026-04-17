@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20260417i">
+<link rel="stylesheet" href="css/styles.css?v=20260417j">
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -256,25 +256,45 @@
 
   <section style="padding:5rem 0;background:var(--crema)">
     <div class="container">
-      <div class="section-title" data-reveal>
-        <span class="eyebrow">Zona de cobertura</span>
-        <h2>Chiapas y Oaxaca</h2>
-        <p>Desde nuestra planta en Arriaga, Chiapas distribuimos a cremerías y abarrotes de ambos estados.</p>
-      </div>
-      <div class="cobertura-grid">
-        <div class="cobertura-card" data-reveal>
-          <div class="estado-num">01</div>
-          <h3>Chiapas</h3>
-          <p>Base de operaciones en Arriaga. Cobertura directa para cremerías y abarrotes en todo el estado.</p>
+      <div class="cobertura-split">
+        <div class="cobertura-texto" data-reveal>
+          <span class="eyebrow">Zona de cobertura</span>
+          <h2>Chiapas y Oaxaca</h2>
+          <p class="cobertura-intro">Desde nuestra planta en Arriaga, Chiapas distribuimos a cremerías y abarrotes de ambos estados.</p>
+
+          <div class="nap-card" itemscope itemtype="https://schema.org/FoodEstablishment">
+            <p class="nap-nombre" itemprop="name">Lácteo Industria Soto S.A. de C.V.</p>
+            <p class="nap-linea" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span><span itemprop="streetAddress">3 Era Sur s/n</span>, <span itemprop="postalCode">30450</span> <span itemprop="addressLocality">Arriaga</span>, <span itemprop="addressRegion">Chiapas</span>, <span itemprop="addressCountry">México</span></span>
+            </p>
+            <p class="nap-linea">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+529514582985" itemprop="telephone">+52 951 458 2985</a>
+            </p>
+            <meta itemprop="url" content="https://lacteosoto.com/">
+            <meta itemprop="image" content="https://lacteosoto.com/img/logo-lacteo-industria-soto.webp">
+          </div>
+
+          <div class="cobertura-estados">
+            <div class="estado-chip">
+              <span class="estado-num">01</span>
+              <div><h3>Chiapas</h3><p>Base de operaciones en Arriaga. Cobertura directa en todo el estado.</p></div>
+            </div>
+            <div class="estado-chip">
+              <span class="estado-num">02</span>
+              <div><h3>Oaxaca</h3><p>Origen histórico de la marca. Cremerías del Valle Central y la región del Istmo.</p></div>
+            </div>
+          </div>
+
+          <div class="mt-2">
+            <a href="/cobertura/" class="btn btn-outline">Ver detalles de cobertura</a>
+          </div>
         </div>
-        <div class="cobertura-card" data-reveal>
-          <div class="estado-num">02</div>
-          <h3>Oaxaca</h3>
-          <p>Origen histórico de la marca. Abastecemos a cremerías tradicionales del Valle Central y la región del Istmo.</p>
+
+        <div class="cobertura-mapa" data-reveal>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d239.42883429321867!2d-93.90394750982524!3d16.227566236834726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8594bb7b62a8df89%3A0xaaf81fd720ed0529!2sProductos%20L%C3%A1cteos%20Hermanos%20Soto!5e0!3m2!1ses!2smx!4v1776444315047!5m2!1ses!2smx" width="100%" height="560" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Lácteo Industria Soto en Arriaga, Chiapas"></iframe>
         </div>
-      </div>
-      <div class="text-center mt-3">
-        <a href="/cobertura/" class="btn btn-outline">Ver detalles de cobertura</a>
       </div>
     </div>
   </section>

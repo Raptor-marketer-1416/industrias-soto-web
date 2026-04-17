@@ -713,6 +713,127 @@ section{padding:5rem 0}
   .historia-split{grid-template-columns:1fr;gap:2rem}
   .historia-split .historia-imagen{aspect-ratio:16/10}
 }
+
+/* ============================================
+   COBERTURA SPLIT + NAP (SEO local)
+   ============================================ */
+.cobertura-split{
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:3.5rem;
+  align-items:start;
+}
+.cobertura-split .cobertura-texto .eyebrow{
+  display:inline-block;
+  color:var(--dorado);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:.8rem;
+  margin-bottom:.9rem;
+}
+.cobertura-split .cobertura-texto h2{
+  margin-bottom:1rem;
+  color:var(--verde-oscuro);
+}
+.cobertura-split .cobertura-intro{
+  color:var(--gris);
+  font-size:1.05rem;
+  line-height:1.7;
+  margin-bottom:1.6rem;
+}
+.nap-card{
+  background:#fff;
+  border:1px solid rgba(31,79,58,.12);
+  border-left:4px solid var(--dorado);
+  border-radius:var(--radio);
+  padding:1.4rem 1.6rem;
+  box-shadow:0 10px 30px rgba(31,79,58,.08);
+  margin-bottom:1.8rem;
+}
+.nap-card .nap-nombre{
+  font-family:var(--font-display);
+  font-weight:700;
+  color:var(--verde-oscuro);
+  font-size:1.15rem;
+  margin:0 0 .7rem;
+  line-height:1.3;
+}
+.nap-card .nap-linea{
+  display:flex;
+  align-items:flex-start;
+  gap:.65rem;
+  color:var(--negro);
+  font-size:.98rem;
+  line-height:1.55;
+  margin:.35rem 0;
+}
+.nap-card .nap-linea svg{
+  color:var(--verde-oscuro);
+  flex:0 0 auto;
+  margin-top:.15rem;
+}
+.nap-card .nap-linea a{
+  color:var(--verde-oscuro);
+  font-weight:600;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:border-color .2s ease;
+}
+.nap-card .nap-linea a:hover{border-bottom-color:var(--dorado)}
+.cobertura-estados{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin-bottom:1.6rem;
+}
+.estado-chip{
+  display:flex;
+  align-items:flex-start;
+  gap:.9rem;
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(31,79,58,.08);
+  border-radius:var(--radio);
+  padding:1rem 1.1rem;
+}
+.estado-chip .estado-num{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.6rem;
+  color:var(--dorado);
+  line-height:1;
+  flex:0 0 auto;
+}
+.estado-chip h3{
+  color:var(--verde-oscuro);
+  font-size:1.05rem;
+  margin:0 0 .25rem;
+}
+.estado-chip p{
+  color:var(--gris);
+  font-size:.88rem;
+  margin:0;
+  line-height:1.5;
+}
+.cobertura-mapa{
+  position:relative;
+  border-radius:var(--radio);
+  overflow:hidden;
+  box-shadow:var(--sombra);
+  border:1px solid rgba(31,79,58,.12);
+}
+.cobertura-mapa iframe{
+  display:block;
+  width:100%;
+  height:560px;
+  border:0;
+}
+@media (max-width:900px){
+  .cobertura-split{grid-template-columns:1fr;gap:2rem}
+  .cobertura-estados{grid-template-columns:1fr}
+  .cobertura-mapa iframe{height:380px}
+}
+
 .historia{max-width:820px;margin:0 auto}
 .historia p{
   font-size:1.08rem;
