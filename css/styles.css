@@ -361,6 +361,15 @@ section{padding:5rem 0}
 .hero-interno .breadcrumbs{margin-bottom:1rem;font-size:.85rem;color:var(--dorado-suave)}
 .hero-interno .breadcrumbs a{color:var(--dorado-suave)}
 .hero-interno .breadcrumbs a:hover{color:var(--crema)}
+.hero-interno .hero-buttons{
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:2rem;
+}
+.hero-interno .btn-outline{color:var(--crema);border-color:var(--crema)}
+.hero-interno .btn-outline:hover{background:var(--crema);color:var(--verde-oscuro)}
 
 /* ============================================
    HERO VIDEO BACKGROUND
