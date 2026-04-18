@@ -282,7 +282,7 @@ section{padding:5rem 0}
    HERO
    ============================================ */
 .hero{
-  padding:calc(6rem + 134px) 0 5rem;
+  padding:calc(2rem + 134px) 0 4rem;
   background:var(--crema);
   position:relative;
   overflow:hidden;
@@ -1178,7 +1178,8 @@ section{padding:5rem 0}
 }
 @media (max-width:768px){
   section{padding:4rem 0}
-  .hero{padding:4rem 0 3rem}
+  .hero{padding:calc(1.5rem + 130px) 0 3rem}
+  .hero-interno{padding:calc(1.5rem + 130px) 0 2.5rem}
   .menu-toggle{display:flex}
   .main-nav{
     position:fixed;
