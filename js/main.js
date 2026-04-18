@@ -55,42 +55,99 @@
     });
   });
 
-  const modal = document.querySelector('.modal-llamada');
-  const modalCerrar = document.querySelectorAll('[data-cerrar-modal]');
-  const triggersLlamada = document.querySelectorAll('[data-abrir-llamada]');
+  /* ======= BOTONES DE CONVERSIÓN (WhatsApp + Llamada) ======= */
+  var CONVERSION_CONFIG = {
+    phone: '+529514582985',
+    whatsapp: '529514582985',
+    companyName: 'Lácteo Industria Soto'
+  };
 
-  function abrirModal() {
-    if (!modal) return;
-    modal.classList.add('activo');
-    modal.setAttribute('aria-hidden', 'false');
+  // WhatsApp
+  var waModal = document.getElementById('wa-modal');
+  var waForm = document.getElementById('wa-form');
+  var openWaBtns = document.querySelectorAll('.open-wa-modal');
+  var waCloseBtn = document.querySelector('.wa-modal-close');
+
+  function openWaModal() {
+    if (!waModal) return;
+    waModal.classList.add('active');
     document.body.style.overflow = 'hidden';
-    document.querySelectorAll('main, header, footer').forEach(function (el) { el.inert = true; });
   }
-  function cerrarModal() {
-    if (!modal) return;
-    modal.classList.remove('activo');
-    modal.setAttribute('aria-hidden', 'true');
+  function closeWaModal() {
+    if (!waModal) return;
+    waModal.classList.remove('active');
     document.body.style.overflow = '';
-    document.querySelectorAll('main, header, footer').forEach(function (el) { el.inert = false; });
   }
 
-  triggersLlamada.forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
+  openWaBtns.forEach(function (btn) {
+    btn.addEventListener('click', openWaModal);
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openWaModal(); }
+    });
+  });
+  if (waCloseBtn) waCloseBtn.addEventListener('click', closeWaModal);
+  if (waModal) waModal.addEventListener('click', function (e) { if (e.target === waModal) closeWaModal(); });
+
+  if (waForm) {
+    waForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      abrirModal();
-    });
-  });
-  modalCerrar.forEach(function (btn) {
-    btn.addEventListener('click', cerrarModal);
-  });
-  if (modal) {
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) cerrarModal();
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.classList.contains('activo')) cerrarModal();
+      var name = document.getElementById('wa-name').value.trim();
+      var service = document.getElementById('wa-service').value;
+      if (!name || !service) return;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'event': 'whatsapp_lead', 'lead_name': name, 'lead_service': service });
+      window.dataLayer.push({ 'event': 'user_data_capture', 'user_data': { 'address': { 'first_name': name } } });
+
+      var message = 'Hola, soy ' + name + '. Me interesa: ' + service + '.';
+      window.open('https://wa.me/' + CONVERSION_CONFIG.whatsapp + '?text=' + encodeURIComponent(message), '_blank');
+      closeWaModal();
+      waForm.reset();
     });
   }
+
+  // Llamada
+  var callModal = document.getElementById('call-modal');
+  var confirmCallBtn = document.getElementById('confirm-call-btn');
+  var cancelCallBtn = document.getElementById('cancel-call-btn');
+  var callTriggers = document.querySelectorAll('.floating-call-btn, a[href^="tel:"]');
+
+  function openCallModal(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (!callModal) return;
+    callModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCallModal() {
+    if (!callModal) return;
+    callModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  callTriggers.forEach(function (t) {
+    t.addEventListener('click', openCallModal);
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCallModal(e); }
+    });
+  });
+  if (cancelCallBtn) cancelCallBtn.addEventListener('click', closeCallModal);
+  if (callModal) callModal.addEventListener('click', function (e) { if (e.target === callModal) closeCallModal(); });
+
+  if (confirmCallBtn) {
+    confirmCallBtn.addEventListener('click', function () {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'event': 'call_confirmed', 'destination_number': CONVERSION_CONFIG.phone });
+      window.location.href = 'tel:' + CONVERSION_CONFIG.phone;
+      closeCallModal();
+    });
+  }
+
+  // Escape cierra ambos modales
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (waModal && waModal.classList.contains('active')) closeWaModal();
+    if (callModal && callModal.classList.contains('active')) closeCallModal();
+  });
 
   const anioEl = document.querySelector('[data-anio]');
   if (anioEl) {
