@@ -1156,7 +1156,7 @@ section{padding:5rem 0}
   right:30px;
   width:62px;
   height:62px;
-  background-color:#25D366;
+  background-color:var(--verde-oscuro);
   border:2px solid #ffffff;
   border-radius:50%;
   display:flex;
@@ -1228,14 +1228,14 @@ section{padding:5rem 0}
 .wa-modal-content .form-group select:focus{border-color:var(--dorado);outline:none}
 .btn-wa-submit{
   width:100%;padding:.95rem;
-  background:#25D366;color:#fff;
+  background:var(--verde-oscuro);color:#fff;
   border:none;border-radius:8px;
   font-weight:700;font-size:1rem;
   cursor:pointer;margin-top:.5rem;
   font-family:inherit;
-  transition:filter .2s;
+  transition:background .2s;
 }
-.btn-wa-submit:hover{filter:brightness(1.08)}
+.btn-wa-submit:hover{background:var(--verde-pasto)}
 
 /* Botón Llamada (solo móvil) */
 .floating-call-btn{
