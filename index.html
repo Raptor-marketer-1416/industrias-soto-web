@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20260417j">
+<link rel="stylesheet" href="css/styles.css?v=20260418a">
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -48,7 +48,14 @@
 
 <main id="contenido">
 
-  <section class="hero hero-oscuro" style="background: linear-gradient(180deg, rgba(31,79,58,0.25) 0%, rgba(0,0,0,0.55) 100%), url('img/hero-quesillo-de-crema-produccion.webp') center/cover no-repeat;">
+  <section class="hero hero-oscuro hero-video-wrap">
+    <div class="hero-video-bg" aria-hidden="true">
+      <img src="img/hero-lacteo-industria-soto-arriaga-poster.webp" alt="" class="hero-video-poster" width="1280" height="720" fetchpriority="high" decoding="async">
+      <video class="hero-video" autoplay muted loop playsinline preload="none" width="1280" height="720" poster="img/hero-lacteo-industria-soto-arriaga-poster.webp">
+        <source data-src="video/hero-lacteo-industria-soto-arriaga.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
     <div class="container">
       <div class="hero-content">
         <span class="eyebrow">Desde 1993 · 33 años de tradición</span>
@@ -397,6 +404,6 @@
 }
 </script>
 
-<script src="js/main.js?v=20260417c"></script>
+<script src="js/main.js?v=20260418a"></script>
 </body>
 </html>

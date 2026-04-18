@@ -97,6 +97,34 @@
     anioEl.textContent = String(new Date().getFullYear());
   }
 
+  /* ======= HERO VIDEO — CARGA DIFERIDA (no bloquea LCP) ======= */
+  if (!RM) {
+    var heroVideo = document.querySelector('.hero-video-bg .hero-video');
+    if (heroVideo) {
+      var startHeroVideo = function () {
+        heroVideo.querySelectorAll('source[data-src]').forEach(function (s) {
+          s.src = s.dataset.src;
+          s.removeAttribute('data-src');
+        });
+        heroVideo.load();
+        var playPromise = heroVideo.play();
+        if (playPromise && typeof playPromise.then === 'function') {
+          playPromise.then(function () {
+            heroVideo.classList.add('is-ready');
+          }).catch(function () {});
+        } else {
+          heroVideo.classList.add('is-ready');
+        }
+      };
+      var fire = function () { setTimeout(startHeroVideo, 1200); };
+      if (document.readyState === 'complete') {
+        fire();
+      } else {
+        window.addEventListener('load', fire, { once: true });
+      }
+    }
+  }
+
   /* ======= RAPTOR LIB 02 — COUNTERS ======= */
   var counters = document.querySelectorAll('[data-count-to]');
   if (counters.length && 'IntersectionObserver' in window && !RM) {
