@@ -1463,8 +1463,31 @@ section{padding:5rem 0}
   .main-nav.activo li:nth-child(3){transition-delay:.29s}
   .main-nav.activo li:nth-child(4){transition-delay:.36s}
   .main-nav.activo li:nth-child(5){transition-delay:.43s}
-  .main-nav a{padding:1.1rem 0;display:block;font-size:1.05rem}
-  .main-nav a.cta-nav{margin-top:1rem;text-align:center}
+  .main-nav a{padding:1.1rem 0;display:block;font-size:1.05rem;color:var(--verde-oscuro)}
+  /* Fuerza texto verde en móvil, independiente del estado del header */
+  body:has(.hero-interno) .site-header .main-nav a,
+  body:has(.hero-oscuro) .site-header .main-nav a,
+  .site-header:hover .main-nav a{color:var(--verde-oscuro)}
+  .main-nav a:hover,
+  .main-nav a.active,
+  body:has(.hero-interno) .site-header .main-nav a:hover,
+  body:has(.hero-interno) .site-header .main-nav a.active,
+  body:has(.hero-oscuro) .site-header .main-nav a:hover,
+  body:has(.hero-oscuro) .site-header .main-nav a.active,
+  .site-header:hover .main-nav a:hover,
+  .site-header:hover .main-nav a.active{color:var(--verde-pasto)}
+  .main-nav a.cta-nav,
+  body:has(.hero-interno) .site-header .main-nav a.cta-nav,
+  body:has(.hero-oscuro) .site-header .main-nav a.cta-nav,
+  .site-header:hover .main-nav a.cta-nav{
+    margin-top:1rem;text-align:center;
+    background:var(--verde-oscuro);color:var(--crema);
+  }
+  .main-nav a.cta-nav:hover,
+  body:has(.hero-interno) .site-header .main-nav a.cta-nav:hover,
+  body:has(.hero-oscuro) .site-header .main-nav a.cta-nav:hover{
+    background:var(--verde-pasto);color:var(--crema);
+  }
   /* Dropdown móvil: toggle con botón */
   .main-nav .has-dropdown{display:block;position:relative}
   .main-nav .has-dropdown > a{display:inline-block;width:auto}
