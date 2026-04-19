@@ -982,6 +982,23 @@ section{padding:5rem 0}
   object-fit:cover;
   display:block;
 }
+
+/* ============================================
+   HOVER ZOOM — imágenes de contenido (solo desktop con hover real)
+   ============================================ */
+@media (hover:hover){
+  .nosotros-imagen img,
+  .historia-img img,
+  .ficha-producto-img img{
+    transition:transform .6s var(--ease-out-expo);
+    will-change:transform;
+  }
+  .nosotros-imagen:hover img,
+  .historia-img:hover img,
+  .ficha-producto-img:hover img{
+    transform:scale(1.06);
+  }
+}
 @media (max-width:900px){
   .nosotros-split{grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem}
   .nosotros-split.imagen-izq .nosotros-imagen{order:0}
