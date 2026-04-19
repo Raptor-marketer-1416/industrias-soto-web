@@ -692,6 +692,65 @@ section{padding:5rem 0}
   width:100%;
   box-shadow:var(--sombra);
 }
+/* Variante: hero de producto con imagen de fondo + overlay */
+.producto-hero.producto-hero-bg{
+  position:relative;
+  overflow:hidden;
+  color:var(--crema);
+  padding:calc(5rem + 134px) 0 5rem;
+  background:var(--verde-oscuro);
+}
+.producto-hero.producto-hero-bg .container{
+  display:block;
+  position:relative;
+  z-index:2;
+  max-width:820px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.producto-hero-bg-img{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.producto-hero-bg-img img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+.producto-hero-bg-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(31,79,58,.35) 0%, rgba(0,0,0,.6) 100%);
+  pointer-events:none;
+}
+.producto-hero.producto-hero-bg .breadcrumbs{color:var(--dorado-suave)}
+.producto-hero.producto-hero-bg .breadcrumbs a{color:var(--dorado-suave)}
+.producto-hero.producto-hero-bg .breadcrumbs a:hover{color:var(--crema)}
+.producto-hero.producto-hero-bg .producto-hero-content h1{color:var(--crema)}
+.producto-hero.producto-hero-bg .producto-hero-content .lead{color:rgba(250,246,236,.92)}
+.producto-hero.producto-hero-bg .producto-hero-content .eyebrow{color:var(--dorado)}
+.producto-hero.producto-hero-bg .ficha-tecnica{
+  background:rgba(250,246,236,.08);
+  border:1px solid rgba(250,246,236,.18);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.producto-hero.producto-hero-bg .ficha-tecnica h3{
+  color:var(--dorado-suave);
+  border-bottom-color:rgba(250,246,236,.2);
+}
+.producto-hero.producto-hero-bg .ficha-tecnica li strong{color:var(--crema)}
+.producto-hero.producto-hero-bg .ficha-tecnica li span{color:rgba(250,246,236,.9)}
+.producto-hero.producto-hero-bg .btn-outline{color:var(--crema);border-color:var(--crema)}
+.producto-hero.producto-hero-bg .btn-outline:hover{background:var(--crema);color:var(--verde-oscuro)}
+
 .producto-hero-content .eyebrow{
   color:var(--dorado);
   font-weight:600;
