@@ -209,8 +209,10 @@ body:has(.hero-oscuro) .site-header .main-nav a.cta-nav:hover{background:var(--c
   left:50%;
   transform:translateX(-50%) translateY(-8px);
   min-width:240px;
-  background:var(--crema);
-  box-shadow:0 18px 42px rgba(15,36,26,.22);
+  background:rgba(31,79,58,.62);
+  backdrop-filter:blur(10px) saturate(1.2);
+  -webkit-backdrop-filter:blur(10px) saturate(1.2);
+  box-shadow:0 18px 42px rgba(15,36,26,.28);
   border-radius:12px;
   padding:.7rem 0;
   list-style:none;
@@ -226,8 +228,9 @@ body:has(.hero-oscuro) .site-header .main-nav a.cta-nav:hover{background:var(--c
   top:-7px;left:50%;
   transform:translateX(-50%) rotate(45deg);
   width:14px;height:14px;
-  background:var(--crema);
-  box-shadow:-2px -2px 6px rgba(15,36,26,.06);
+  background:rgba(31,79,58,.62);
+  backdrop-filter:blur(10px) saturate(1.2);
+  -webkit-backdrop-filter:blur(10px) saturate(1.2);
 }
 .has-dropdown:hover .dropdown-menu,
 .has-dropdown:focus-within .dropdown-menu{
@@ -240,29 +243,28 @@ body:has(.hero-oscuro) .site-header .main-nav a.cta-nav:hover{background:var(--c
   padding:.65rem 1.4rem;
   font-size:.92rem;
   font-weight:500;
-  color:var(--verde-oscuro);
+  color:var(--crema);
   white-space:nowrap;
   text-decoration:none;
   transition:background .2s ease, color .2s ease, padding-left .2s ease;
 }
-.dropdown-menu a::after{display:none}
+.dropdown-menu a::after{display:none !important}
 .dropdown-menu a:hover,
 .dropdown-menu a.active{
-  color:var(--verde-pasto);
-  background:rgba(31,79,58,.06);
+  color:var(--dorado-suave);
+  background:rgba(255,255,255,.08);
   padding-left:1.7rem;
 }
-/* En header claro/oscuro el dropdown siempre usa fondo crema + texto verde */
+/* Sobrescribe color heredado del estado del header para mantener crema sobre verde translúcido */
 body:has(.hero-interno) .site-header .dropdown-menu a,
 body:has(.hero-oscuro) .site-header .dropdown-menu a,
-.site-header:hover .dropdown-menu a{color:var(--verde-oscuro)}
+.site-header:hover .dropdown-menu a{color:var(--crema)}
 body:has(.hero-interno) .site-header .dropdown-menu a:hover,
 body:has(.hero-oscuro) .site-header .dropdown-menu a:hover,
 body:has(.hero-interno) .site-header .dropdown-menu a.active,
 body:has(.hero-oscuro) .site-header .dropdown-menu a.active,
 .site-header:hover .dropdown-menu a:hover,
-.site-header:hover .dropdown-menu a.active{color:var(--verde-pasto)}
-.dropdown-menu a::after{display:none !important}
+.site-header:hover .dropdown-menu a.active{color:var(--dorado-suave)}
 
 .menu-toggle{
   display:none;
@@ -1193,7 +1195,7 @@ section{padding:5rem 0}
    FOOTER
    ============================================ */
 .site-footer{
-  background:#ffffff;
+  background:var(--crema);
   color:var(--verde-oscuro);
   padding:4rem 0 0;
   border-top:4px solid var(--verde-oscuro);
