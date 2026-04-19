@@ -77,10 +77,11 @@
   // WhatsApp
   var waModal = document.getElementById('wa-modal');
   var waForm = document.getElementById('wa-form');
-  var openWaBtns = document.querySelectorAll('.open-wa-modal');
+  var openWaBtns = document.querySelectorAll('.open-wa-modal, a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="whatsapp.com/send"]');
   var waCloseBtn = document.querySelector('.wa-modal-close');
 
-  function openWaModal() {
+  function openWaModal(e) {
+    if (e && e.preventDefault) e.preventDefault();
     if (!waModal) return;
     waModal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -94,7 +95,7 @@
   openWaBtns.forEach(function (btn) {
     btn.addEventListener('click', openWaModal);
     btn.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openWaModal(); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openWaModal(e); }
     });
   });
   if (waCloseBtn) waCloseBtn.addEventListener('click', closeWaModal);
