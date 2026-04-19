@@ -25,6 +25,18 @@
     });
   }
 
+  /* ======= DROPDOWN PRODUCTOS (toggle en móvil) ======= */
+  document.querySelectorAll('.dropdown-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var parent = btn.closest('.has-dropdown');
+      if (!parent) return;
+      var isOpen = parent.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+  });
+
   if (header) {
     let lastScroll = 0;
     const onScroll = function () {
