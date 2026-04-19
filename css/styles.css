@@ -1509,6 +1509,8 @@ section{padding:5rem 0}
   .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
 }
 @media (max-width:768px){
+  /* Ocultar migajas en móvil sin afectar SEO: el BreadcrumbList JSON-LD sigue intacto */
+  .breadcrumbs{display:none}
   section{padding:4rem 0}
   .hero{padding:calc(1.5rem + 130px) 0 3rem}
   .hero-interno{padding:calc(1.5rem + 130px) 0 2.5rem}
