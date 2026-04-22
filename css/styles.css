@@ -999,9 +999,20 @@ section{padding:5rem 0}
     transform:scale(1.06);
   }
 }
+.nosotros-figura{margin:0;display:flex;flex-direction:column;gap:.75rem}
+.nosotros-caption{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:.95rem;
+  color:var(--gris);
+  text-align:center;
+  letter-spacing:.01em;
+}
 @media (max-width:900px){
   .nosotros-split{grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem}
   .nosotros-split.imagen-izq .nosotros-imagen{order:0}
+  .nosotros-split.imagen-primero-movil .nosotros-figura,
+  .nosotros-split.imagen-primero-movil .nosotros-imagen{order:-1}
   .nosotros-split .nosotros-imagen{aspect-ratio:16/10}
 }
 
