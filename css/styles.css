@@ -1612,10 +1612,19 @@ section{padding:5rem 0}
   }
   .main-nav .dropdown-toggle svg{transition:transform .35s ease}
   .main-nav .has-dropdown.open .dropdown-toggle svg{transform:rotate(180deg)}
-  .main-nav .dropdown-menu{
+  .main-nav .dropdown-menu,
+  .main-nav .has-dropdown:hover .dropdown-menu,
+  .main-nav .has-dropdown:focus-within .dropdown-menu{
     position:static;
+    left:auto;
+    right:auto;
+    top:auto;
     transform:none;
+    width:100%;
+    max-width:100%;
     background:transparent;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
     box-shadow:none;
     border-radius:0;
     padding:0;
