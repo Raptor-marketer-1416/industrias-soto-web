@@ -17,3 +17,7 @@ https://www.lacteosoto.com/*   https://lacteosoto.com/:splat   301!
 /contacto.html                 /contacto/                      301
 /aviso-de-privacidad.html      /aviso-de-privacidad/           301
 /terminos-y-condiciones.html   /terminos-y-condiciones/        301
+
+# Renombrado producto 2026-04-22: "Quesillo Descremado" → "Quesillo Natural"
+/productos/quesillo-descremado/   /productos/quesillo-natural/   301
+/productos/quesillo-descremado    /productos/quesillo-natural/   301
